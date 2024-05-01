@@ -67,18 +67,21 @@
     <div class="container">
         @if (\Session::has('message'))
             @php
-                $r = \Session::get('message')['responsetext'];
+                $r = \Session::get('message');
+                $msg=$r['responsetext'];
             @endphp
-            @if ($r = 'SUCCESS')
+            @if ($msg == 'SUCCESS')
                 @php
                     $type = 'success';
-                    $r = 'Payment Successfull';
+                    $msg = 'Payment Successfull';
                 @endphp
             @else
-                @php($type = 'danger')
+                @php
+                    $type = 'danger';
+                @endphp
             @endif
             <div class="alert alert-{{ $type }}" role="alert">
-                {!! $r !!}
+                {{ $msg }}
             </div>
         @endif
         <h2>Payment Form</h2>
