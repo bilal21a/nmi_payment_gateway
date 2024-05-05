@@ -409,4 +409,48 @@ class PaymentController extends Controller
         // dd($r);
         return redirect()->back()->with('message',$r);
     }
+    public function direct_post_back_end(Request $request)
+    {
+        $fields = array(
+            'security_key' => '2zt4Jme4fhA9EK6f745QjD9B8CTt4H6x',
+            'payment_token' => $request->paymentToken,
+            'amount' =>$request->amount,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'city' => $request->city,
+            'address1' => $request->address1,
+            'country' => $request->country,
+            'first_name' => $request->firstName,
+            'last_name' => $request->lastName,
+            'zip' => $request->postalCode,
+            'state' => $request->state,
+            'cavv' => $request->cavv,
+            'xid' => $request->xid,
+            'eci' => $request->eci,
+            'cardholder_auth' => $request->cardHolderAuth,
+            'three_ds_version' => $request->threeDsVersion,
+            'directory_server_id' => $request->directoryServerId,
+            'cardholder_info' => $request->cardHolderInfo,
+        );
+
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => 'https://secure.nmi.com/api/transact.php',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'POST',
+            CURLOPT_POSTFIELDS => $fields
+        ));
+
+        $response = curl_exec($curl);
+
+        curl_close($curl);
+        return $this->processApiResponse($response);
+
+    }
 }

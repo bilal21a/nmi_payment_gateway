@@ -68,7 +68,7 @@
         @if (\Session::has('message'))
             @php
                 $r = \Session::get('message');
-                $msg=$r['responsetext'];
+                $msg = $r['responsetext'];
             @endphp
             @if ($msg == 'SUCCESS')
                 @php
@@ -88,7 +88,7 @@
         <form method="post" action="{{ route('step_2') }}" onsubmit="return validateForm()">
             @csrf
 
-            <div class="form-group">
+            {{-- <div class="form-group">
                 <label for="select_pay">Select Payy*</label>
                 <select id="nmi_select" name="nmi_select" required>
                     <option value="CMS NMI">CMS Pay</option>
@@ -96,7 +96,7 @@
                     <option value="NAGlobalsLLC">NAGlobalsLLC</option>
                     <!-- Add more options as needed -->
                 </select>
-            </div>
+            </div> --}}
             <div class="form-group">
                 <label for="nmi_select">NMI Select*</label>
                 <select id="nmi_select" name="nmi_select" required>
@@ -136,7 +136,15 @@
             </div>
             <div class="form-group">
                 <label for="country">Country*</label>
-                <input type="text" id="country" name="country" required>
+                <select id="country" name="country">
+                    <option value="US">United States</option>
+                    <option value="UK">United Kingdom</option>
+                    <option value="UAE">United Arab Emirates</option>
+                    <option value="CA">Canada</option>
+                    <option value="AU">Australia</option>
+                    <option value="FR">France</option>
+                    <option value="DE">Germany</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="state">State*</label>
@@ -150,60 +158,6 @@
                 <label for="postal_code">Postal Code*</label>
                 <input type="text" id="postal_code" name="postal_code" required>
             </div>
-
-            <div class="form-group">
-                <label for="card_number">Card Number*</label>
-                <input type="text" id="card_number" name="card_number" required>
-            </div>
-            <div class="form-group">
-                <label for="expiry_month">Expiry Month*</label>
-                <select id="expiry_month" name="expiry_month" required>
-                    <option value="01">January</option>
-                    <option value="02">February</option>
-                    <option value="03">March</option>
-                    <option value="04">April</option>
-                    <option value="05">May</option>
-                    <option value="06">June</option>
-                    <option value="07">July</option>
-                    <option value="08">August</option>
-                    <option value="09">September</option>
-                    <option value="10">October</option>
-                    <option value="11">November</option>
-                    <option value="12">December</option>
-
-                    <!-- Add other months -->
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="expiry_year">Expiry Year*</label>
-                <select id="expiry_year" name="expiry_year" required>
-                    <option value="2023">2023</option>
-                    <option value="2024">2024</option>
-                    <option value="2025">2025</option>
-                    <option value="2026">2026</option>
-                    <option value="2027">2027</option>
-                    <option value="2028">2028</option>
-                    <option value="2029">2029</option>
-                    <option value="2030">2030</option>
-                    <option value="2031">2031</option>
-                    <option value="2032">2032</option>
-                    <option value="2033">2033</option>
-                    <option value="2034">2034</option>
-                    <option value="2035">2035</option>
-                    <option value="2036">2036</option>
-                    <option value="2037">2037</option>
-                    <option value="2038">2038</option>
-                    <option value="2039">2039</option>
-                    <option value="2040">2040</option>
-                    <option value="2041">2041</option>
-                    <option value="2042">2042</option>
-                    <!-- Add other years -->
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="cvv">CVV*</label>
-                <input type="text" id="cvv" name="cvv" required>
-            </div>
             <div class="form-group">
                 <label for="description">Description</label>
                 <textarea id="description" name="description"></textarea>
@@ -212,25 +166,9 @@
         </form>
     </div>
 </body>
-{{-- <script>
+<script>
     function validateForm() {
-        var cardNumber = document.getElementById("card_number").value;
-        var cvv = document.getElementById("cvv").value;
         var postalCode = document.getElementById("postal_code").value;
-
-        // Validate card number format
-        var cardNumberRegex = /^\d{16}$/;
-        if (!cardNumberRegex.test(cardNumber)) {
-            alert("Please enter a valid 16-digit card number.");
-            return false;
-        }
-
-        // Validate CVV format
-        var cvvRegex = /^\d{3}$/;
-        if (!cvvRegex.test(cvv)) {
-            alert("Please enter a valid 3-digit CVV.");
-            return false;
-        }
 
         // Validate postal code format
         var postalCodeRegex = /^\d{5}$/;
@@ -240,6 +178,6 @@
         }
         return true;
     }
-</script> --}}
+</script>
 
 </html>
