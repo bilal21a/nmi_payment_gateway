@@ -14,13 +14,13 @@ use Omnipay\Omnipay;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
 // Route::get('/3ds', function () {
 //     return view('3ds');
 // });
-Route::get('step-1','SecurePaymentController@step_1')->name('step_1');
+Route::get('/','SecurePaymentController@step_1')->name('step_1');
 Route::post('step-2','SecurePaymentController@step_2')->name('step_2');
 // Route::post('done-payment','PaymentController@pay')->name('payment_save');
 Route::post('direct-post-back-end','PaymentController@direct_post_back_end')->name('direct_post_back_end');
