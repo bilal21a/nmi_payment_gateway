@@ -136,23 +136,15 @@
             </div>
             <div class="form-group">
                 <label for="country">Country*</label>
-                <select id="country" name="country">
-                    <option value="US">United States</option>
-                    <option value="UK">United Kingdom</option>
-                    <option value="UAE">United Arab Emirates</option>
-                    <option value="CA">Canada</option>
-                    <option value="AU">Australia</option>
-                    <option value="FR">France</option>
-                    <option value="DE">Germany</option>
-                </select>
+                <input type="text" id="country" name="country" value="US" required>
             </div>
             <div class="form-group">
                 <label for="state">State*</label>
-                <input type="text" id="state" name="state" required>
+                <input type="text" id="state" name="state" value="NY" required>
             </div>
             <div class="form-group">
                 <label for="city">City*</label>
-                <input type="text" id="city" name="city" required>
+                <input type="text" id="city" name="city" value="New York" required>
             </div>
             <div class="form-group">
                 <label for="postal_code">Postal Code*</label>
