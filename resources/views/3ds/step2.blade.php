@@ -174,7 +174,7 @@
     <div id="threeDSMountPoint"></div>
 </body>
 <script src="https://secure.nmi.com/js/v1/Gateway.js"></script>
-<script src="https://secure.nmi.com/token/Collect.js" data-tokenization-key="55JHqV-G43B7Z-2YaQTg-36Azsw"
+<script src="https://secure.nmi.com/token/Collect.js" data-tokenization-key="q82geU-j2f766-QQ4pG8-3qf24F"
     data-style-sniffer="true" data-field-ccnumber-selector='.mni_style'></script>
 <script>
     function scrollToPosition(position) {
@@ -193,7 +193,7 @@
         }
     }
     scrollToPosition('bottom')
-    const gateway = Gateway.create('checkout_public_G5wT2dCMZ2XyQVsbHdbhbaMq63gQC3N5');
+    const gateway = Gateway.create('checkout_public_Yc7xKM7acMaFum5EdK35H5T4VjaSpz8T');
     const threeDS = gateway.get3DSecure();
 
     window.addEventListener('DOMContentLoaded', () => {

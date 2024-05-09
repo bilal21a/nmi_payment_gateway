@@ -375,7 +375,7 @@ class PaymentController extends Controller
         $data['description']  = $request->description;
 
 
-        $this->setLogin("2zt4Jme4fhA9EK6f745QjD9B8CTt4H6x");
+        $this->setLogin("km665844893Q5KN334qUkrMHSjG7475T");
         $this->setBilling(
             $data['first_name'],
             $data['last_name'],
@@ -412,7 +412,7 @@ class PaymentController extends Controller
     public function direct_post_back_end(Request $request)
     {
         $fields = array(
-            'security_key' => '2zt4Jme4fhA9EK6f745QjD9B8CTt4H6x',
+            'security_key' => 'km665844893Q5KN334qUkrMHSjG7475T',
             'payment_token' => $request->paymentToken,
             'amount' =>$request->amount,
             'email' => $request->email,
