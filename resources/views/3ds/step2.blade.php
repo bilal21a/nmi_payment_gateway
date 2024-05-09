@@ -300,6 +300,9 @@
 
                 threeDSecureInterface.on('failure', function(e) {
                     console.log('failure');
+                    scrollToPosition('top')
+                    $('.my_js_alert').addClass('alert-danger')
+                    $('.my_js_alert').html(e.message)
                     console.log(e);
                 });
             }
