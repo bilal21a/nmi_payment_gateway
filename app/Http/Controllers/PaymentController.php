@@ -375,7 +375,7 @@ class PaymentController extends Controller
         $data['description']  = $request->description;
 
 
-        $this->setLogin("km665844893Q5KN334qUkrMHSjG7475T");
+        $this->setLogin(env('NMI_API'));
         $this->setBilling(
             $data['first_name'],
             $data['last_name'],
@@ -412,7 +412,7 @@ class PaymentController extends Controller
     public function direct_post_back_end(Request $request)
     {
         $fields = array(
-            'security_key' => 'km665844893Q5KN334qUkrMHSjG7475T',
+            'security_key' => env('NMI_API'),
             'payment_token' => $request->paymentToken,
             'amount' =>$request->amount,
             'email' => $request->email,

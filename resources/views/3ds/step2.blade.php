@@ -168,15 +168,23 @@
         <label>CVV</label>
         <div id="cvv" class="mni_style"></div>
         <br>
-        <button id="payButton" disabled class="btn btn-success">Pay Now</button>
+        <button id="payButton" disabled class="btn btn-success pay_btn">Pay Now</button>
+        <button class="btn btn-success loading_btn" style="display: none" type="button" disabled>
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            Loading...
+        </button>
     </div>
 
     <div id="threeDSMountPoint"></div>
 </body>
 <script src="https://secure.nmi.com/js/v1/Gateway.js"></script>
-<script src="https://secure.nmi.com/token/Collect.js" data-tokenization-key="q82geU-j2f766-QQ4pG8-3qf24F"
+<script src="https://secure.nmi.com/token/Collect.js" data-tokenization-key="{{ env('TOKENIZATION') }}"
     data-style-sniffer="true" data-field-ccnumber-selector='.mni_style'></script>
 <script>
+    $("#payButton").click(function() {
+        myloader("show")
+    });
+
     function scrollToPosition(position) {
         if (position === 'top') {
             window.scrollTo({
@@ -193,7 +201,8 @@
         }
     }
     scrollToPosition('bottom')
-    const gateway = Gateway.create('checkout_public_Yc7xKM7acMaFum5EdK35H5T4VjaSpz8T');
+    var checkout_key = "{{ env('PUBLIC_CHECKOUT') }}";
+    const gateway = Gateway.create(checkout_key);
     const threeDS = gateway.get3DSecure();
 
     window.addEventListener('DOMContentLoaded', () => {
@@ -206,21 +215,26 @@
                 if (status) {
                     var message = field + " is now OK: " + message;
                     console.log('field: ', field);
-                    $('#payButton').attr('disabled',false)
+                    $('#payButton').attr('disabled', false)
                     colorizeTextField(field, true, message);
                 } else {
                     var message = field + " is now Invalid: " + message;
                     console.log('field: ', field);
-                    $('#payButton').attr('disabled',"disabled")
+                    $('#payButton').attr('disabled', "disabled")
                     colorizeTextField(field, false, message);
                 }
                 console.log(message);
             },
             "timeoutDuration": 10000,
             "timeoutCallback": function() {
-                console.log(
-                    "The tokenization didn't respond in the expected timeframe.  This could be due to an invalid or incomplete field or poor connectivity"
-                );
+                var tkn_msg =
+                    "The tokenization didn't respond in the expected timeframe. This could be due to an invalid or incomplete field or poor connectivity"
+                scrollToPosition('top')
+                $('.my_js_alert').addClass('alert-danger')
+                $('.my_js_alert').html(error)
+                console.error('Error:', error);
+                console.log(tkn_msg);
+                myloader("hide")
             },
             callback: (e) => {
 
@@ -247,12 +261,15 @@
                     $('.my_js_alert').addClass('alert-danger')
                     $('.my_js_alert').html(error)
                     console.error('Error:', error);
+                    myloader("hide")
+
                 })
                 threeDSecureInterface.start('#threeDSMountPoint');
 
                 threeDSecureInterface.on('challenge', function(e) {
                     console.log('challenge: ', e);
                     console.log('Challenged');
+                    myloader("hide")
                 });
 
                 threeDSecureInterface.on('complete', function(e) {
@@ -284,16 +301,20 @@
                         })
                         .then(data => {
                             console.log(data);
+                            myloader("hide")
                             var type = data.responsetext == "SUCCESS" ? 'success' :
                                 'danger'
                             scrollToPosition('top')
                             $('.my_js_alert').addClass('alert-' + type)
                             $('.my_js_alert').html(data.responsetext)
+
                         })
                         .catch(error => {
                             console.error(
                                 'There was a problem with your fetch operation:',
                                 error);
+                            myloader("hide")
+
                         });
 
                 });
@@ -303,6 +324,7 @@
                     scrollToPosition('top')
                     $('.my_js_alert').addClass('alert-danger')
                     $('.my_js_alert').html(e.message)
+                    myloader("hide")
                     console.log(e);
                 });
             }
@@ -310,9 +332,21 @@
 
         gateway.on('error', function(e) {
             console.log('error: ', e);
+            myloader("hide")
             console.error(e);
         })
     })
+
+    function myloader(type) {
+        if (type == "show") {
+            $('.loading_btn').show()
+            $('.pay_btn').hide()
+        }
+        if (type == "hide") {
+            $('.pay_btn').show()
+            $('.loading_btn').hide()
+        }
+    }
 
     function colorizeTextField(id, isSuccess, message, borderWidth = "1px", borderStyle = "solid", borderColor = "") {
         var textField = document.getElementById(id);
