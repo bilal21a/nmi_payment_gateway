@@ -7,6 +7,9 @@
     <title>Payment Form</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYImOHMtONaIqWmWyEdfPH2vKn6GZE9I4&libraries=places">
+    </script>
 
     <style>
         body {
@@ -136,15 +139,15 @@
             </div>
             <div class="form-group">
                 <label for="country">Country*</label>
-                <input type="text" id="country" name="country" value="US" required>
+                <input type="text" id="country" name="country" value="" required>
             </div>
             <div class="form-group">
                 <label for="state">State*</label>
-                <input type="text" id="state" name="state" value="NY" required>
+                <input type="text" id="state" name="state" value="" required>
             </div>
             <div class="form-group">
                 <label for="city">City*</label>
-                <input type="text" id="city" name="city" value="New York" required>
+                <input type="text" id="city" name="city" value="" required>
             </div>
             <div class="form-group">
                 <label for="postal_code">Postal Code*</label>
@@ -159,6 +162,40 @@
     </div>
 </body>
 <script>
+    $(document).ready(function() {
+        // Initialize Google Places Autocomplete
+        var autocomplete = new google.maps.places.Autocomplete(
+            document.getElementById('search_address'), {
+                types: ['geocode']
+            }
+        );
+
+        // Fill other fields when address is selected
+        autocomplete.addListener('place_changed', function() {
+            var place = autocomplete.getPlace();
+            if (!place.geometry) {
+                console.log("Place details not available");
+                return;
+            }
+
+            $('#billing_address').val(place.formatted_address);
+
+            // Fill other fields if available
+            $.each(place.address_components, function(index, component) {
+                var addressType = component.types[0];
+                if (addressType === 'country') {
+                    $('#country').val(component.short_name);
+                } else if (addressType === 'administrative_area_level_1') {
+                    $('#state').val(component.short_name);
+                } else if (addressType === 'locality') {
+                    $('#city').val(component.long_name);
+                } else if (addressType === 'postal_code') {
+                    $('#postal_code').val(component.long_name);
+                }
+            });
+        });
+    });
+
     function validateForm() {
         var postalCode = document.getElementById("postal_code").value;
 
