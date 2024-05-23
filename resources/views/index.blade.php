@@ -210,7 +210,11 @@
                 <label for="description">Description</label>
                 <textarea id="description" name="description"></textarea>
             </div>
-            <button type="submit" class="btn-submit">Submit</button>
+            <button type="submit" class="btn-submit pay_btn">Submit</button>
+            <button class="btn btn-success loading_btn" style="display: none" type="button" disabled>
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                Loading...
+            </button>
         </form>
     </div>
 </body>
@@ -250,6 +254,7 @@
     });
 
     function validateForm() {
+        myloader("show")
         var cardNumber = document.getElementById("card_number").value;
         var cvv = document.getElementById("cvv").value;
         var postalCode = document.getElementById("postal_code").value;
@@ -265,6 +270,7 @@
         var cvvRegex = /^\d{3}$/;
         if (!cvvRegex.test(cvv)) {
             alert("Please enter a valid 3-digit CVV.");
+            myloader("hide")
             return false;
         }
 
@@ -272,9 +278,21 @@
         var postalCodeRegex = /^\d{5}$/;
         if (!postalCodeRegex.test(postalCode)) {
             alert("Please enter a valid 5-digit postal code.");
+            myloader("hide")
             return false;
         }
+        myloader("show")
         return true;
+    }
+    function myloader(type) {
+        if (type == "show") {
+            $('.loading_btn').show()
+            $('.pay_btn').hide()
+        }
+        if (type == "hide") {
+            $('.pay_btn').show()
+            $('.loading_btn').hide()
+        }
     }
 </script>
 
