@@ -15,4 +15,9 @@ class SecurePaymentController extends Controller
         $data['data']=$request;
         return view('3ds.step2',$data);
     }
+
+    public function test()
+    {
+        return view('test');
+    }
 }

@@ -7,7 +7,9 @@
     <title>Payment Form</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYImOHMtONaIqWmWyEdfPH2vKn6GZE9I4&libraries=places">
+        </script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -68,7 +70,7 @@
         @if (\Session::has('message'))
             @php
                 $r = \Session::get('message');
-                $msg=$r['responsetext'];
+                $msg = $r['responsetext'];
             @endphp
             @if ($msg == 'SUCCESS')
                 @php
@@ -85,7 +87,7 @@
             </div>
         @endif
         <h2>Payment Form</h2>
-        <form method="post" action="{{ route('step_2') }}" onsubmit="return validateForm()">
+        <form method="post" action="{{ route('payment_save') }}" onsubmit="return validateForm()">
             @csrf
 
             <div class="form-group">
@@ -212,18 +214,52 @@
         </form>
     </div>
 </body>
-{{-- <script>
+<script>
+    $(document).ready(function() {
+        // Initialize Google Places Autocomplete
+        var autocomplete = new google.maps.places.Autocomplete(
+            document.getElementById('search_address'), {
+                types: ['geocode']
+            }
+        );
+
+        // Fill other fields when address is selected
+        autocomplete.addListener('place_changed', function() {
+            var place = autocomplete.getPlace();
+            if (!place.geometry) {
+                console.log("Place details not available");
+                return;
+            }
+
+            $('#billing_address').val(place.formatted_address);
+
+            // Fill other fields if available
+            $.each(place.address_components, function(index, component) {
+                var addressType = component.types[0];
+                if (addressType === 'country') {
+                    $('#country').val(component.short_name);
+                } else if (addressType === 'administrative_area_level_1') {
+                    $('#state').val(component.short_name);
+                } else if (addressType === 'locality') {
+                    $('#city').val(component.long_name);
+                } else if (addressType === 'postal_code') {
+                    $('#postal_code').val(component.long_name);
+                }
+            });
+        });
+    });
+
     function validateForm() {
         var cardNumber = document.getElementById("card_number").value;
         var cvv = document.getElementById("cvv").value;
         var postalCode = document.getElementById("postal_code").value;
 
         // Validate card number format
-        var cardNumberRegex = /^\d{16}$/;
-        if (!cardNumberRegex.test(cardNumber)) {
-            alert("Please enter a valid 16-digit card number.");
-            return false;
-        }
+        // var cardNumberRegex = /^\d{16}$/;
+        // if (!cardNumberRegex.test(cardNumber)) {
+        //     alert("Please enter a valid 16-digit card number.");
+        //     return false;
+        // }
 
         // Validate CVV format
         var cvvRegex = /^\d{3}$/;
@@ -240,6 +276,6 @@
         }
         return true;
     }
-</script> --}}
+</script>
 
 </html>
