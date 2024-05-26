@@ -14,19 +14,20 @@
         // This will start out 0px x 0px during fingerprinting.
         // If the customer is prompted to complete a challenge, it will resize automatically.
         const options = {
-            cardNumber: "4111111111111111",
+            // cardNumber: "4111111111111111",
+            cardNumber: "4000000000002503",
             cardExpMonth: "01",
             cardExpYear: "2024",
             currency: 'USD',
-            amount: '10.00',
+            amount: '1',
             email: 'none@example.com',
             phone: '8008675309',
             city: 'New York',
             state: 'NY',
             address1: '123 First St.',
             country: 'US',
-            firstName: 'Jane',
-            lastName: 'Doe',
+            firstName: 'Billal',
+            lastName: 'Bhai',
             postalCode: '60001'
         };
 
@@ -43,7 +44,7 @@
 
         // Listen for the threeDSecureInterface to provide all the needed 3DS data
         threeDSecureInterface.on('complete', function(e) {
-            fetch('direct-post-back-end.php', {
+            fetch("{{ route('payment_done') }}", {
                 method: 'POST',
                 body: JSON.stringify({
                     ...options,

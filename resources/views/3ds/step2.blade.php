@@ -302,7 +302,7 @@
                         .then(data => {
                             console.log(data);
                             myloader("hide")
-                            var type = data.responsetext == "SUCCESS" ? 'success' :
+                            var type = data.responsetext == "SUCCESS" || data.responsetext == "APPROVED" ? 'success' :
                                 'danger'
                             scrollToPosition('top')
                             $('.my_js_alert').addClass('alert-' + type)
