@@ -103,9 +103,9 @@
             <div class="form-group">
                 <label for="nmi_select">NMI Select*</label>
                 <select id="nmi_select" name="nmi_select" required>
-                    <option value="izziventures">Izziventures</option>
-                    <option value="USPowerEnergy">USPowerEnergy</option>
-                    <option value="NAGlobalsLLC">NAGlobalsLLC</option>
+                    <option value="izziventures" selected >Izziventures</option>
+                    {{-- <option value="USPowerEnergy">USPowerEnergy</option> --}}
+                    {{-- <option value="NAGlobalsLLC">NAGlobalsLLC</option> --}}
                     <!-- Add more options as needed -->
                 </select>
             </div>
