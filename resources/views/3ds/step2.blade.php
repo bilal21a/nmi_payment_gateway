@@ -105,9 +105,10 @@
 
             <div class="form-group">
                 <label for="product_price">NMI Select*</label>
-                <input type="text" id="product_price" value="{{ $data->nmi_select }}" name="product_price" required
+                <input type="text" id="product_price" value="{{ $merchent->name }}" name="product_price" required
                     disabled>
             </div>
+            <input type="hidden" name="nmi_id" id="nmi_id" value="{{ $merchent->id }}">
             <div class="form-group">
                 <label for="product_price">Product Price*</label>
                 <input type="text" id="product_price" name="product_price" value="{{ $data->product_price }}"
@@ -178,7 +179,7 @@
     <div id="threeDSMountPoint"></div>
 </body>
 <script src="https://secure.nmi.com/js/v1/Gateway.js"></script>
-<script src="https://secure.nmi.com/token/Collect.js" data-tokenization-key="{{ env('TOKENIZATION') }}"
+<script src="https://secure.nmi.com/token/Collect.js" data-tokenization-key="{{ $merchent->tokenization }}"
     data-style-sniffer="true" data-field-ccnumber-selector='.mni_style'></script>
 <script>
     $("#payButton").click(function() {
@@ -201,7 +202,7 @@
         }
     }
     scrollToPosition('bottom')
-    var checkout_key = "{{ env('PUBLIC_CHECKOUT') }}";
+    var checkout_key = "{{ $merchent->public_checkout }}";
     const gateway = Gateway.create(checkout_key);
     const threeDS = gateway.get3DSecure();
 
@@ -291,6 +292,7 @@
                                 threeDsVersion: e.threeDsVersion,
                                 directoryServerId: e.directoryServerId,
                                 cardHolderInfo: e.cardHolderInfo,
+                                nmi_id: $('#nmi_id').val(),
                             })
                         })
                         .then(response => {

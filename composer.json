@@ -14,8 +14,9 @@
         "guzzlehttp/guzzle": "^6.3.1|^7.0.1",
         "laravel/framework": "^7.29",
         "laravel/tinker": "^2.5",
-        "mfauveau/omnipay-nmi": "^2.0"
-
+        "laravel/ui": "^2.4",
+        "spatie/laravel-permission": "^5.9",
+        "yajra/laravel-datatables-oracle": "^9.21"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

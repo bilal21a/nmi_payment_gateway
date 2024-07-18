@@ -103,7 +103,9 @@
             <div class="form-group">
                 <label for="nmi_select">NMI Select*</label>
                 <select id="nmi_select" name="nmi_select" required>
-                    <option value="izziventures" selected >Izziventures</option>
+                    @foreach ($merchents as $m)
+                        <option value="{{ $m->id }}" selected>{{ $m->name }}</option>
+                    @endforeach
                     {{-- <option value="USPowerEnergy">USPowerEnergy</option> --}}
                     {{-- <option value="NAGlobalsLLC">NAGlobalsLLC</option> --}}
                     <!-- Add more options as needed -->

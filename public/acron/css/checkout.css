@@ -1,0 +1,305 @@
+#lottie-container {
+    min-height: 352px;
+}
+.promo-lottie-container {
+    height: 300px !important;
+}
+
+.payment_modal_body {
+    min-height: 650px;
+}
+
+.checkout {
+    font-family: var(--font-heading);
+    width: 300px;
+    height: 45px;
+    font-size: 1.85em;
+    font-weight: 300;
+    color: #000000;
+    margin: 30px 0 0 10px;
+
+}
+
+.mainrow {
+    padding-top: 50px;
+}
+
+.custom-text {
+
+    height: 45px;
+    color: black;
+    font-size: 23px;
+
+}
+
+.form-control-sm {
+    border: 1px solid var(--nexa-border);
+    border-radius: 6px;
+}
+
+.textcolor {
+    color: var(--nexa-text-color) !important;
+
+}
+
+.btn-ligh {
+
+    border: 1px solid var(--nexa-border);
+    border-radius: 6px;
+    text-align: start;
+}
+
+.hight {
+    height: 51px;
+}
+
+.lasttext {
+    font-size: 12px;
+
+}
+
+.usd {
+    font-size: 24px;
+    padding-left: 10px;
+
+}
+
+.btn-xl {
+    height: 45px;
+
+}
+
+.month {
+    border: 1px solid var(--nexa-border);
+    border-radius: 6px;
+    padding-bottom: 65px;
+    width: 100%;
+    height: 325px;
+
+}
+
+.month1 {
+    font-size: 25px;
+    color: black;
+    font-weight: 600;
+
+}
+
+.applycode {
+    padding-left: 50px;
+    padding-right: 35px;
+    width: 438px;
+}
+
+
+.form-floating svg {
+    position: absolute;
+    top: 10px;
+    right: 10px
+}
+
+.form-floating button {
+    position: absolute;
+    top: 7px;
+    right: 10px
+}
+
+.applycode {
+    margin: auto;
+}
+
+.borderend {
+    border: 1px solid var(--nexa-border);
+    border-radius: 6px;
+    /* background-color: rgba(255, 154, 1, 0.05); */
+    height: 45px;
+    /* margin-left: 10px !important; */
+    width: 47%;
+}
+
+.borderend1 {
+    border: 1px solid var(--nexa-border);
+    border-radius: 6px;
+    height: 45px;
+    width: 46.5%;
+
+}
+
+.circle {
+    border: #90CAF9;
+    border-radius: 6px;
+    background-color: #FF9A01;
+}
+
+.credit_img {
+    position: absolute;
+
+    height: 27px;
+    margin-top: -3px !important;
+}
+
+.circle_img {
+    height: 20px;
+    /* margin-top: -px !important; */
+}
+
+.submit_btn {
+    font-family: var(--font);
+    padding: 15px 40px;
+    font-size: 1em;
+    line-height: 1rem;
+    border: initial;
+    box-shadow: initial !important;
+    transition: all var(--transition-time-short);
+    border-radius: var(--border-radius-md);
+    white-space: nowrap;
+}
+
+.apply_btn {
+    font-family: var(--font);
+    font-size: 1em;
+    border: initial;
+    box-shadow: initial !important;
+    transition: all var(--transition-time-short);
+    border-radius: var(--border-radius-md);
+    white-space: nowrap;
+    padding: 0px 10px !important;
+}
+
+.custom-text {
+    font-family: var(--font);
+}
+
+.checkbox_radio {
+
+    cursor: pointer;
+    transition: all 0.1s ease;
+}
+
+.hover__press:active {
+    filter: drop-shadow(0 0px 0);
+    transform: translate(0, 5px);
+    clip-path: inset(-20% 0 13% 0 round 10px);
+}
+
+.paypal_pay_info {
+    display: none;
+    padding: 9px 0px !important;
+}
+
+@media only screen and (max-width: 425px) {
+    .borderend {
+        width: 95%;
+    }
+
+    .borderend1 {
+        width: 95%;
+        /* margin-left: 5px; */
+        margin-top: 14px;
+    }
+}
+
+.heading {
+    font-weight: bold;
+}
+
+.card_field {
+    background-color: rgba(255, 154, 1, 0.05);
+
+}
+
+.coupon_loader {
+    background: transparent;
+    display: none;
+}
+
+.StripeElement {
+    /* background-color: white; */
+    padding: 12px;
+    border-radius: 4px;
+    border: 1px solid var(--nexa-border);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: box-shadow 150ms ease;
+    transition: box-shadow 150ms ease;
+}
+
+.modalborder {
+    border-bottom: 0px solid red;
+    align-items: self-start;
+    padding: 6px 12px 0px;
+}
+
+.modalbutton {
+    background: transparent;
+    border: none;
+    color: var(--text-color-button);
+}
+
+.modalimage {
+    width: 200px;
+    display: flex;
+    padding-top: 100px;
+    margin-left: 98px;
+}
+
+.paymentheading {
+    display: flex;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 140%;
+    color: #BC2626;
+}
+
+.modaltext {
+    display: flex;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 140%;
+}
+
+.textalignment {
+    color: var(--text-color-button);
+}
+
+
+
+.colorbutton {
+    color: var(--text-color-button);
+}
+
+.lottiewidth {
+    height: 250px;
+}
+
+.modal_text {
+    user-select: none;
+}
+
+@media only screen and (min-width:991px) and (max-width:1250px) {
+    .paypal_pay_info {
+        display: none;
+        padding-right: 0px !important;
+    }
+}
+
+@media only screen and (max-width:767px) {
+    .submitorder {
+        margin-left: 10px;
+    }
+}
+
+.border_right {
+    border-right: 1px solid #00000080;
+    padding: 6px 17px;
+    font-size: large;
+}
+.installingtiontext
+{
+    padding: 6px 17px;
+    font-size: large;
+}
+.bottomtext_suucess{
+    font-size: 24px;
+}

@@ -1,0 +1,374 @@
+.main {
+    justify-content: space-evenly;
+}
+
+.item {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "Silkscreen", cursive;
+}
+
+.item .count_down {
+    font-family: "Permanent Marker", cursive;
+    margin-bottom: 0 !important;
+}
+
+#map {
+    padding: 0px !important;
+    height: 530px !important;
+}
+
+
+.leaflet-popup-content-wrapper {
+    width: 100%;
+}
+
+.hover-img-scale-up {
+    background: linear-gradient(102.94deg, var(--dashboard-gradient-card-1) 2.64%, var(--dashboard-gradient-card-2) 82.29%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.bgcolor {
+    background: linear-gradient(102.94deg, var(--dashboard-gradient-card-1) 2.64%, var(--dashboard-gradient-card-2) 82.29%);
+    background-color: black;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.div {
+    height: 300px;
+    max-height: 200px;
+}
+
+.para {
+    display: inline;
+}
+
+.div-1 {
+    height: 200px !important;
+    max-height: 200px !important;
+}
+
+.div_2 {
+    width: 77px;
+    height: 77px;
+    border-radius: 8px;
+    background: var(--dashboard-img-card);
+    box-sizing: unset;
+    padding: 10px;
+    line-height: 25px;
+}
+
+.deviceinfo {
+    font-weight: 500;
+    color: #ffffff;
+    margin: 0;
+}
+
+.topboxes {
+    margin-left: 20px;
+    color: #ffffff;
+    width: 100%;
+}
+
+.phonediv {
+    width: 35px !important;
+    height: 35px !important;
+}
+
+#mobileimage {
+    width: 20px !important;
+}
+
+.recentcalls {
+    width: 775px;
+}
+
+.recentcallsimage {
+    width: 180px;
+}
+
+.recentcllstext {
+    width: 144px;
+    font-family: 'Inter';
+    font-style: normal;
+    line-height: 24px;
+    color: #000000;
+    display: flex;
+    align-items: center;
+    margin: 0px 0px 0px 15px;
+}
+
+.profileimage {
+    width: auto;
+    margin-top: -8px;
+}
+
+.content {
+    width: 215px;
+}
+
+.tabletext {
+    padding-top: 2px;
+}
+
+.tabledate {
+    width: 240px;
+}
+
+.imgbox {
+    width: 40px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.recentcalltable {
+    height: 250px;
+}
+
+@media only screen and (max-width: 1120px) {
+    .tabletext {
+        padding-top: 2px;
+    }
+
+    .tabletime {
+        padding-top: 19px;
+    }
+
+    #mobileimage {
+        width: 12px !important;
+    }
+
+    .buttonalignment {
+        margin: 15px 14px 18px auto !important;
+    }
+}
+
+/* @media only screen and (max-width:1025px) {
+
+    .overflow {
+        overflow-y: auto !important;
+    }
+} */
+
+@media only screen and (max-width:821px) {
+
+    .buttonalignment {
+        margin: 15px 6px 18px !important;
+    }
+
+    .text {
+        margin-left: 14px !important;
+    }
+
+    .div_2 {
+        width: 59px !important;
+        height: 59px !important;
+    }
+    .overflow {
+        /* overflow-y: auto !important; */
+        height: auto !important;
+    }
+
+    .recentcalltable {
+        height: auto !important;
+    }
+}
+
+
+
+@media only screen and (max-width:575px) {
+    .buttonbackground {
+        width: 135px !important;
+        height: 41px !important;
+        margin-right: 5px !important;
+    }
+    .phoneborder{
+        margin-top: 15px !important;
+    }
+
+}
+
+.buttonbackground {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    gap: 10px;
+    position: absolute;
+    width: 119px;
+    height: 40px;
+    background-color: var(--button-color-yellow);
+    border-radius: 6px;
+    width: 135px;
+    height: 41px;
+
+}
+
+.buttonalignment {
+    margin: 15px 30px 18px auto;
+}
+
+.anchor {
+    list-style: none;
+    color: rgb(255, 255, 255);
+    color: #ffffff;
+}
+
+.backcolor {
+    border-radius: 20px 20px 0px 0px;
+    height: 70px;
+}
+.recentcallheading {
+    display: flex;
+    align-items: center;
+}
+.endline {
+    margin-right: 0;
+    margin-left: 0;
+    margin-top: 2px;
+    color: transparent;
+}
+
+.buttonbackground:hover {
+    background-color: #DF8600;
+}
+
+.buttonbackground:focus {
+    background-color: #DF8600 !important;
+}
+
+.anchor:hover {
+    color: #ffffff;
+}
+
+.lightcolor {
+    background: linear-gradient(to right, var(--recent-call-gradient-card-1)2.64%, var(--recent-call-gradient-card-2)82.29%);
+}
+
+.recentmessages {
+    width: 280px;
+    height: 38px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    line-height: 19px;
+    color: #777777;
+}
+
+.recentlocation {
+    height: 70px;
+    border-radius: 20px 20px 0px 0px;
+    font-size: 1.5em;
+    line-height: 140%;
+    display: flex;
+    align-items: center;
+    color: var(--font-recent-location);
+    background: var(--recent-location);
+}
+
+.dashboardheader {
+    height: 70px;
+    border-radius: 20px 20px 0px 0px;
+    display: flex;
+    align-items: center;
+    background: var(--recent-location);
+}
+
+.boxalignment {
+    height: 570px;
+    padding: 20px 15px;
+}
+
+.phoneboxalignment {
+    height: 570px;
+}
+
+.overflow {
+    /* overflow-y: auto; */
+    /* height: 250px; */
+}
+
+.alignmentcanvas {
+    margin: 0px auto !important;
+}
+
+/* .overflow::-webkit-scrollbar {
+    width: 1em;
+} */
+
+.phonelock {
+    width: 40px;
+}
+.form-alignment {
+    display: flex;
+    justify-content: end;
+}
+.lockalignment {
+    width: 27px;
+}
+
+.remotelockbackground {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    gap: 10px;
+    position: absolute;
+    background-color: var(--button-color-yellow);
+    border-radius: 6px;
+}
+
+.btn-yellow {
+    background-color: var(--button-color-yellow);
+}
+
+.btn-yellow:hover {
+    background-color: #DF8600 !important;
+}
+
+.btn-yellow:focus {
+    background-color: #DF8600 !important;
+}
+
+.textchangepassword {
+    color: var(--pasword-change-color);
+}
+
+.word_break {
+    word-break: break-all;
+}
+
+@media only screen and (min-width:1200px) and (max-width:1700px) {
+
+    .dashboard_card_medium {
+        max-height: none !important;
+    }
+
+    .main_div {
+        flex-direction: column;
+    }
+
+    .topboxes {
+        margin-left: unset;
+    }
+
+
+    /*
+    .col-xl-3 {
+        width: 50% !important;
+    } */
+}
+
+
+header>.header-content>.container>.row {
+    display: none;
+}
+
+#root>main {
+    padding-top: 0.5em;
+}

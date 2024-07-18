@@ -1,0 +1,266 @@
+.device-frame {
+    box-sizing: border-box;
+    position: relative;
+    width: 544px;
+    height: 244px;
+    background: #FFFFFF;
+    border: 1px solid #D8D9DC;
+    border-radius: 8px;
+    margin: 20px 40px 0 0;
+}
+
+.device-frame .large-img {
+
+    display: inline-block;
+    width: 106px;
+    height: 100%;
+    padding: 30px;
+}
+
+.content-frame {
+    float: left;
+}
+
+.content-frame .small-img {
+    max-height: 30px;
+}
+
+.device-modal {
+    position: relative;
+    margin-top: 30px;
+    width: 185px;
+    height: 22px;
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 160%;
+    display: flex;
+    align-items: center;
+    color: #4F8CEE;
+}
+
+.device-features {
+    margin-top: 15px;
+    position: relative;
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 160%;
+    color: #333333;
+}
+
+.device-features .img-div {
+    display: inline-block;
+    width: 25px;
+}
+
+.btn-customised {
+    border: 1px solid #D8D9DC;
+    color: black;
+    border-radius: 6px;
+    width: 106px;
+    height: 31px;
+    margin: 10px 10px 0 0;
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+}
+
+.btn-customised:hover {
+    color: white;
+    background-color: #4F8CEE;
+}
+
+.device-frame-title {
+    width: 554px;
+    height: 45px;
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 140%;
+    color: #4F8CEE;
+}
+
+.device-content {
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 160%;
+    color: #333333;
+}
+
+.device-link {
+    display: inline;
+    height: 50px;
+}
+
+.device-link-a {
+    text-decoration-line: underline;
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    text-align: center;
+    color: var(--primary-darker);
+    vertical-align: bottom;
+}
+
+.cp-0 {
+    padding-top: 0 !important;
+}
+
+.radius {
+    border-radius: var(--border-radius-lg);
+}
+
+.p-card {
+    padding: 10px;
+}
+
+.box {
+    height: 3.0rem !important;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(3, 3, 3, 0.84);
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+}
+
+.item {
+    position: relative;
+}
+
+.text {
+    color: rgb(245, 161, 5);
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: -38%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.text1 {
+    color: white;
+    font-size: 15px;
+    position: absolute;
+    top: 70%;
+    left: 70%;
+    transform: translate(-75%, -50%);
+    text-align: center;
+}
+@media only screen and (max-width: 414px){
+    .blubutton{
+       width: 100%;
+    }
+}
+
+.text2 {
+    color: white;
+    font-size: 15px;
+    position: absolute;
+    top: 70%;
+    left: 30%;
+    transform: translate(-25%, -50%);
+    text-align: center;
+}
+
+.mid {
+    padding: 20px;
+}
+
+.heading {
+    font-size: 12px;
+}
+
+.install {
+    font-size: 14px;
+}
+
+.mex {
+    /* height: 480px; */
+    /* width: 424; */
+}
+
+.mex1 {
+    height: 480px;
+    width: 430px;
+}
+
+.siz {
+    width: 73px;
+    height: 73px;
+}
+
+.size {
+    font-size: 12px;
+}
+
+.device_card {
+    box-sizing: border-box;
+    position: relative;
+    /* width: 424px; */
+    height: auto;
+    padding: 3em 1em;
+    background: var(--foreground);
+    border: 1px solid var(--primary);
+    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.1);
+    border-radius: var(--border-radius-lg);
+}
+
+.inactive_device_card {
+    position: absolute;
+    box-sizing: border-box;
+    /* border: 1px solid var(--primary); */
+    box-shadow: 5px 5px 4px rgb(0 0 0 / 10%);
+    border-radius: var(--border-radius-lg);
+    padding: 18.5em 1em;
+    left: 0px;
+}
+
+.centredrow {
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.inforow {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.uniq {
+    word-break: break-all;
+    padding: 0 35px;
+}
+.qrcode{
+        width: 39%;
+}
+.dwnload{
+    margin-bottom: 32px;
+}
+.height{
+    height: 73px;
+}
+.boxheight{
+    min-height: 153px;
+}
+.plansbutton
+{
+    margin-top: 64px;
+}

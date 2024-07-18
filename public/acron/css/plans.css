@@ -1,0 +1,119 @@
+.cp-0 {
+    padding: 0 !important;
+}
+
+.cm-0 {
+    margin: 0 !important;
+}
+
+.height {
+    height: 80px;
+}
+
+.height2 {
+    height: 72px;
+}
+
+li::marker {
+    /* content: "•"; */
+    color: #4F8CEE;
+    font-size: 20px;
+
+}
+
+.nav-item {}
+
+.textamount {
+    color: #FF9A01 !important;
+    font-size: 50px;
+}
+
+.ninenine {
+    font-size: 30px;
+}
+
+.nav-pills .nav-link.active {
+    background-color: #FF9A01;
+    color: white;
+
+}
+
+.nav-pills .nav-link:hover {
+    background-color: #FF9A01;
+    color: white;
+
+}
+
+.nav-item {
+    list-style: none !important;
+}
+
+.bottom {
+    border-bottom: 1px solid #add8f5;
+    width: 100%;
+    padding-bottom: 1px;
+}
+
+.font {
+    color: #000000;
+    font-size: 16px;
+}
+
+.mainbox {
+    padding-top: 80px;
+
+}
+
+.second {
+    border: 1px solid rgba(48, 51, 54, 0.5);
+}
+
+
+.set {
+    font-size: 16px;
+    color: #000000;
+}
+
+.text {
+    padding-right: 25px;
+    padding-left: 25px;
+}
+
+.bgcolor {
+    background-color: #e2edfa;
+    border-radius: 10px;
+
+}
+
+.nexa_operations li::marker {
+    content: "•";
+    color: #4F8CEE;
+    font-size: 20px;
+}
+
+.cardcolor {
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.plan {
+    color: #000000;
+}
+
+.plan1 {
+    color: #4F8CEE;
+}
+
+.buybutton {
+    background-color: #FF9A01;
+}
+
+.buybutton:hover {
+    background-color: #4F8CEE;
+}
+
+/* .pricing_block{
+    border: 1px solid #8888884f;
+    border-radius: var(--border-radius-lg);
+    background-color: #8888881c !important;
+} */

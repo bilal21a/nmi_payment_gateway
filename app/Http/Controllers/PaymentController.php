@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PaymentController extends Controller
 {
@@ -411,8 +412,9 @@ class PaymentController extends Controller
     }
     public function direct_post_back_end(Request $request)
     {
+        $nmi_key=DB::table('merchents')->where('id',$request->nmi_id)->first();
         $fields = array(
-            'security_key' => env('NMI_API'),
+            'security_key' => $nmi_key->api_key,
             'payment_token' => $request->paymentToken,
             'amount' =>$request->amount,
             'email' => $request->email,

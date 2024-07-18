@@ -3,15 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SecurePaymentController extends Controller
 {
     public function step_1()
     {
-        return view('3ds.step1');
+        $merchents=DB::table('merchents')->get();
+        return view('3ds.step1',compact('merchents'));
     }
     public function step_2(Request $request)
     {
+        $data['merchent']=DB::table('merchents')->where('id',$request->nmi_select)->first();
         $data['data'] = $request;
         return view('3ds.step2', $data);
     }
