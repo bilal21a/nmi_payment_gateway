@@ -304,11 +304,11 @@
                         .then(data => {
                             console.log(data);
                             myloader("hide")
-                            var type = data.responsetext == "SUCCESS" || data.responsetext == "APPROVED" ? 'success' :
-                                'danger'
-                            scrollToPosition('top')
-                            $('.my_js_alert').addClass('alert-' + type)
-                            $('.my_js_alert').html(data.responsetext)
+                            var type = ['SUCCESS', 'Approved'].includes(data
+                                .responsetext) ? 'success' : 'danger';
+                            scrollToPosition('top');
+                            $('.my_js_alert').addClass('alert-' + type).html(data
+                                .responsetext);
 
                         })
                         .catch(error => {
